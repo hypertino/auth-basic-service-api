@@ -2,3 +2,23 @@
 title: Basic Authorization API
 baseUri: hb://auth-basic
 extends: auth-service-api/auth.raml
+
+types:
+  OriginalPassword:
+    properties:
+      value: string
+
+  EncryptedPassword:
+    properties:
+      value: string
+
+/encryptions:
+  post:
+    body:
+      application/json:
+        type: OriginalPassword
+    responses:
+      201:
+        body:
+          application/json:
+            type: EncryptedPassword          
