@@ -1,0 +1,17 @@
+#%RAML 1.0
+title: User API
+version: v1
+mediaType: application/json
+baseUri: hb://user
+
+types:
+  User:
+    properties:
+      user_id: string
+      password?: string
+
+/users:
+  get:
+    responses:
+      200:
+        body: User[]
